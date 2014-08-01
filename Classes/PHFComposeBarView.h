@@ -76,6 +76,7 @@ extern NSString *const PHFComposeBarViewFrameEndUserInfoKey;          // NSValue
 @property (strong, nonatomic) UIImage *utilityButtonImage UI_APPEARANCE_SELECTOR;
 
 - (void)setText:(NSString *)text animated:(BOOL)animated;
+- (void)setAttributedText:(NSAttributedString *)text animated:(BOOL)animated;
 
 @end
 

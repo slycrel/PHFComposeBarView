@@ -252,6 +252,11 @@ static CGFloat kTextViewToSuperviewHeightDelta;
     [self handleTextViewChangeAnimated:animated];
 }
 
+- (void)setAttributedText:(NSAttributedString *)text animated:(BOOL)animated {
+  [[self textView] setAttributedText:text];
+  [self handleTextViewChangeAnimated:animated];
+}
+
 #pragma mark - Internal Properties
 
 // The top line is placed below the background view in order to brighten the
@@ -643,7 +648,7 @@ static CGFloat kTextViewToSuperviewHeightDelta;
 
     if (!isHidden) {
         NSInteger count = [[[[self textView] text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length];
-        NSString *text = [NSString stringWithFormat:@"%d/%d", count, [self maxCharCount]];
+        NSString *text = [NSString stringWithFormat:@"%ld/%ld", (long)count, (long)[self maxCharCount]];
         [[self charCountLabel] setText:text];
     }
 }
